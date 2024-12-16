@@ -2,6 +2,7 @@ package com.springprojectbatystag.demo.services;
 
 import com.springprojectbatystag.demo.entities.User;
 import com.springprojectbatystag.demo.repositories.UserRepository;
+import com.springprojectbatystag.demo.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,7 @@ public class UserService {
 
     public User findById(Long id){
        Optional<User> obj = repository.findById(id);
-       return obj.get();
+       return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User obj){
