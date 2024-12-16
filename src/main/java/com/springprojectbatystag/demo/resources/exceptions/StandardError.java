@@ -8,7 +8,7 @@ import java.time.Instant;
 
 public class StandardError implements Serializable {
 
-    private static final Long SerialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'",timezone = "GMT")
     private Instant timestamp;
